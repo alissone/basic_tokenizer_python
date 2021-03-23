@@ -9,7 +9,7 @@ This program will identify the following tokens:
     MULTIPLY = *
     MODULUS = %
 
-Run `python tokenizer.py` to calculate two numbers in an interactive shell
+Run `python tokenizer.py` to calculate two numbers in an interactive shell, or add filenames as arguments in the commandline to open one or more text files containing an expression
 
 
 Type any other letter to exit
