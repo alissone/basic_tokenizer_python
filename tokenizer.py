@@ -166,16 +166,28 @@ class TokenParser():
         return self.execute_operation(op.category, int(previous.value), int(next.value))
         
         
+import sys
+
 """
 Interactive terminal to calculate numbers
 """
-while True:
-    try:
-        code = input('>>> ')
-    except EOFError:
-        break
-    if not code:
-        continue
-    parser = TokenParser(code)
-    result = parser.expr()
-    print(result)
+arguments = sys.argv[1:]
+
+if arguments == []:
+    while True:
+        try:
+            code = input('>>> ')
+        except EOFError:
+            break
+        if not code:
+            continue
+        parser = TokenParser(code)
+        result = parser.expr()
+        print(result)
+
+else:
+    for filename in arguments.split(" "):
+        with open(filename, "r") as code_file:
+            parser = TokenParser("".join(code_file.readlines()))
+            result = parser.expr()
+            print(result)
